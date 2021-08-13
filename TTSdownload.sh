@@ -20,7 +20,7 @@ while IFS='' read -r line || [[ -n "$line" ]]; do
     for word in $words
     do
       	echo "> [$word]"
-        url="http://translate.google.com/translate_tts?ie=UTF-8&total=1&idx=0&textlen=${#word}&client=tw-ob&q=$word&tl=$langCode"
+        url="https://translate.google.com/translate_tts?ie=UTF-8&total=1&idx=0&textlen=${#word}&client=tw-ob&q=$word&tl=$langCode"
         echo $url
         wget -q -U Mozilla -O tmp/$word.mp3 $url
     done
@@ -34,7 +34,7 @@ function forArgument() {
    savedFile=$(cat /dev/urandom | tr -dc 'a-e0-9' | fold -w 8 | head -n 1)
    echo "> [$String]"
    urlString=$(urlencode "$String")
-   url="http://translate.google.com/translate_tts?ie=UTF-8&total=1&idx=0&textlen=${#word}&client=tw-ob&q=$urlString&tl=$langCode"
+   url="https://translate.google.com/translate_tts?ie=UTF-8&total=1&idx=0&textlen=${#word}&client=tw-ob&q=$urlString&tl=$langCode"
    echo $url
    wget -q -U Mozilla -O tmp/$savedFile.mp3 $url
    echo "look tmp/$savedFile.mp3 file"
